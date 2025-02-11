@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ course.name }} - Detalhe do Curso{% endblock %}
+
+{% block content %}
+<h2>Detalhe do Curso</h2>
+<p>Nome: {{ course.name }}</p>
+<p>Descrição: {{ course.description }}</p>
+<p>Data de Criação: {{ course.created_at }}</p>
+{% endblock %}
