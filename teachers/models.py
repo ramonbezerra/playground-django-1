@@ -18,30 +18,38 @@ class TeacherForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(TeacherForm, self).__init__(*args, **kwargs)
-        self.fields['email'].required = True
 
-    # def clean_email(self):
-    #     email = self.cleaned_data['email']
-    #     if '@' not in email:
-    #         raise forms.ValidationError("Por favor, insira um email válido.")
-    #     return email
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if '@' not in email:
+            raise forms.ValidationError("Por favor, insira um email válido.")
+        if not email.endswith('.com'):
+            raise forms.ValidationError("Por favor, insira um email válido.")
+        return email
 
-    # def clean_name(self):
-    #     name = self.cleaned_data['name']
-    #     if len(name) < 3:
-    #         raise forms.ValidationError("Por favor, insira um nome válido.")
-    #     return name
+    def clean_name(self):
+        name = self.cleaned_data['name']
+        if len(name) < 3:
+            raise forms.ValidationError("Por favor, insira um nome válido.")
+        return name
     
-    # def clean_lastname(self):
-    #     lastname = self.cleaned_data['lastname']
-    #     if len(lastname) < 3:
-    #         raise forms.ValidationError("Por favor, insira um sobrenome válido.")
-    #     return lastname
+    def clean_lastname(self):
+        lastname = self.cleaned_data['lastname']
+        if len(lastname) < 3:
+            raise forms.ValidationError("Por favor, insira um sobrenome válido.")
+        return lastname
     
     # def clean(self):
-    #     cleaned_data = super(TeacherForm, self).clean()
+    #     cleaned_data = super().clean()
     #     email = cleaned_data.get('email')
     #     name = cleaned_data.get('name')
     #     lastname = cleaned_data.get('lastname')
+    #     print(email)
+    #     if email and not email.endswith('.com'):
+    #         raise forms.ValidationError("Por favor, insira um email válido.")
+    #     if len(name) < 3:
+    #         raise forms.ValidationError("Por favor, insira um nome válido.")
+    #     if len(lastname) < 3:
+    #         raise forms.ValidationError("Por favor, insira um sobrenome válido.")
     #     if not email or not name or not lastname:
     #         raise forms.ValidationError("Por favor, preencha todos os campos.")

@@ -11,12 +11,12 @@ def teacher_detail(request, teacher_id):
     return render(request, 'teachers/detail.html', context)
 
 def teacher_create(request):
-    context = {'form': TeacherForm()}
     if request.method == 'POST':
         form = TeacherForm(request.POST)
         if form.is_valid():
             teacher = Teacher.objects.create(**form.cleaned_data)
             teacher.save()
             return teacher_detail(request, teacher.id)
-    else:
-        return render(request, 'teachers/create.html', context)
+        else: 
+            return render(request, 'teachers/create.html', {'form': form})
+    return render(request, 'teachers/create.html', {'form': TeacherForm()})
