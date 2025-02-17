@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ student.fullname }} - Detalhe do Estudante{% endblock %}
+
+{% block content %}
+<h2>Detalhe do Estudante</h2>
+<p>Nome: {{ student.fullname }}</p>
+<p>Email: {{ student.email }}</p>
+<p>Data de Criação: {{ student.created_at }}</p>
+<p>Última Atualização: {{ student.updated_at }}</p>    
+{% endblock %}

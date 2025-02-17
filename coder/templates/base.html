@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>{% block title %}Coder - Cursos Livres{% endblock %}</title>
+    <title>{% block title %}{% endblock %} - Coder: Cursos Livres</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
@@ -11,6 +11,7 @@
         <h1>Coder</h1>
         <nav>
             <li><a href="{% url 'courses:courses_list' %}">Cursos</a></li>
+            <li><a href="{% url 'students:students_list' %}">Estudantes</a></li>
         </nav>
     </header>
     <main>

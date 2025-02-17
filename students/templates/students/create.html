@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Novo Estudante{% endblock %}
+
+{% block content %}
+<h2>Novo Estudante</h2>
+
+{% if form.errors %}
+    <p>Por favor, corrija os erros abaixo.</p>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}
