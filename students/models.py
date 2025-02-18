@@ -22,3 +22,9 @@ class StudentForm(forms.Form):
         if len(data) < 3:
             raise forms.ValidationError("O nome precisa ter mais de 3 caracteres.")
         return data
+    
+    def clean_email(self):
+        data = self.cleaned_data['email']
+        if Student.objects.filter(email=data).exists():
+            raise forms.ValidationError("Já existe um estudante com esse email.")
+        return data

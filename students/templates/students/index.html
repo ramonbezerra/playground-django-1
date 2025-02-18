@@ -4,6 +4,7 @@
 
 {% block content %}
 <h2>Lista de Estudantes</h2>
+<a href="{% url 'students:student_create' %}">Matricule-se!</a>
 <ul>
     {% for student in students %}
         <li><a href="{% url 'students:student_detail' student.id %}">{{ student.fullname }}</a></li>
