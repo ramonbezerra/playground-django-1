@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from teachers.models import Teacher, TeacherForm
+from teachers.models import Teacher
 
 def teachers_list(request):
     context = {'teachers': Teacher.objects.all()}
