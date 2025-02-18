@@ -6,8 +6,7 @@ appname = 'teachers'
 
 patterns = [
     path('', views.teachers_list, name='teachers_list'),
-    path('<int:teacher_id>', views.teacher_detail, name='teacher_detail'),
-    path('create/', views.teacher_create, name='teacher_create'),
+    path('<int:teacher_id>', views.teacher_detail, name='teacher_detail')
 ]
 
 teachers_patterns = (patterns, appname)
